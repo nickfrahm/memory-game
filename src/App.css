@@ -1,0 +1,41 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.Header {
+  width: 100%;
+  background-color: grey;
+  color: white;
+  font-size: 3em;
+  text-align: center;
+}
+
+.ShapeContainer {
+  width: 90%;
+  margin: 15px;
+  height: 80vh;
+  /*display: grid*/
+}
+
+.ScoreContainer {
+  display: flex;
+  margin: 5px;
+}
+
+.Score {
+  margin: 8px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 85px;
+  width: 140px;
+  height: 85px;
+  font-size: .9em;
+}
+
+.box-curved-border {
+  border-radius: 3px;
+  background-color: lightgrey;
+}
