@@ -1,12 +1,14 @@
 import React from 'react';
 
 function Shape(props) {
-  const { color, shapeType, id } = props;
+  const { backgroundColor, shapeType, id, shuffleShapes } = props;
 
   return (
-    <div className={color + ' ' + shapeType + ' Shape'} id={id}>
-      test
-    </div>
+    <div
+      className={backgroundColor + ' ' + shapeType + ' Shape'}
+      id={id}
+      onClick={shuffleShapes}
+    ></div>
   );
 }
 

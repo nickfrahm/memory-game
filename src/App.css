@@ -9,7 +9,7 @@
   width: 100%;
   background-color: grey;
   color: white;
-  font-size: 3em;
+  font-size: 3rem;
   text-align: center;
 }
 
@@ -17,7 +17,13 @@
   width: 90%;
   margin: 15px;
   height: 80vh;
-  /*display: grid*/
+  display: grid;
+  grid-template-areas:
+    "TL TLM TRM TR"
+    "ML MLM MRM MR"
+    "BL BLM BRM BR";
+  justify-items: center;
+  align-items: center;
 }
 
 .ScoreContainer {
@@ -32,10 +38,47 @@
   line-height: 85px;
   width: 140px;
   height: 85px;
-  font-size: .9em;
+  font-size: .9rem;
+}
+
+.Shape {
+  width: 10vw;
+  height: 10vw;
 }
 
 .box-curved-border {
   border-radius: 3px;
   background-color: lightgrey;
+}
+
+.blue {
+  background-color: dodgerblue;
+}
+
+.red {
+  background-color: tomato;
+}
+
+.yellow {
+  background-color: lightyellow;
+}
+
+.green {
+  background-color: mediumspringgreen;
+}
+
+.circle {
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.triangle {
+  /*width: 0;
+  height: 0;
+  border-left: 8vw solid transparent;
+  border-right: 8vw solid transparent;
+  border-bottom: 8vw solid;*/
+  width: 10vw;
+  height: 10vw;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
 }
