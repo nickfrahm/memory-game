@@ -1,13 +1,14 @@
 import React from 'react';
 
 function Shape(props) {
-  const { backgroundColor, shapeType, id, shuffleShapes } = props;
+  const { backgroundColor, shapeType, id, gameController } = props;
 
   return (
     <div
       className={backgroundColor + ' ' + shapeType + ' Shape'}
       id={id}
-      onClick={shuffleShapes}
+      onClick={gameController}
+      key={id}
     ></div>
   );
 }

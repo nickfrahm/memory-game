@@ -5,6 +5,17 @@ import Shapes from '../Shapes';
 function ShapeContainer(props) {
   const [shapeIDsSelected, setShapeIDsSelected] = useState([]);
 
+  const {
+    currentScore,
+    highScore,
+    handleCurrentScoreChange,
+    handleHighScoreChange,
+  } = props;
+
+  useEffect(() => {
+    shuffleShapes();
+  }, []);
+
   const shuffleShapes = () => {
     let tempShapes = Shapes.map((s) => s);
     const areas = [
@@ -29,6 +40,29 @@ function ShapeContainer(props) {
     });
   };
 
+  const checkIfClicked = (id) => {
+    return shapeIDsSelected.includes(id);
+  };
+
+  const checkHighScore = () => {
+    return currentScore >= highScore;
+  };
+
+  const gameController = (e) => {
+    const { id } = e.target;
+    if (checkIfClicked(id)) {
+      if (checkHighScore()) {
+        handleHighScoreChange(currentScore);
+      }
+      handleCurrentScoreChange(0);
+      setShapeIDsSelected([]);
+    } else {
+      handleCurrentScoreChange(currentScore + 1);
+      setShapeIDsSelected([...shapeIDsSelected, id]);
+    }
+    shuffleShapes();
+  };
+
   return (
     <div className='ShapeContainer box-curved-border'>
       {Shapes.map((shape) => {
@@ -37,7 +71,8 @@ function ShapeContainer(props) {
             backgroundColor={shape.backgroundColor}
             shapeType={shape.shape}
             id={shape.id}
-            shuffleShapes={shuffleShapes}
+            key={shape.id}
+            gameController={gameController}
           />
         );
       })}
